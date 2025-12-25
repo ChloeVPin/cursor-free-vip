@@ -1,0 +1,16 @@
+# Files and directories to keep in git
+
+## Important resource files
+- resources/fixes/workbench.desktop.main.js (required for workbench file fix feature)
+
+## Public assets
+- public/icon.ico (Windows icon)
+- public/icon.png (Linux icon)
+- public/icon.svg (SVG icon)
+
+## Source assets
+- src/assets/icon.svg (app icon)
+
+## Note
+.gitkeep files in directories ensure empty directories are tracked by git.
+If a directory has files, the .gitkeep file is optional but harmless.
