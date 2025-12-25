@@ -1,0 +1,209 @@
+/* JetBrains Mono - Using Google Fonts CDN */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local Font Loading - Inter (similar to Claude AI) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://rsms.me/inter/font-files/Inter-Bold.woff2') format('woff2');
+}
+
+/* CSS Variables - Centralized Theme Colors */
+/* These are initialized from src/lib/theme.ts via src/lib/colors.ts */
+:root {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  /* Borders */
+  --border-radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-onyx-800;
+  }
+
+  html {
+    @apply antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    @apply bg-onyx-950 text-onyx-100;
+    font-family: var(--font-sans);
+  }
+
+  /* Headings - Bold, white */
+  h1 {
+    @apply text-3xl font-bold text-white tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-white tracking-tight;
+  }
+
+  h3 {
+    @apply text-lg font-semibold text-onyx-100;
+  }
+
+  h4 {
+    @apply text-base font-semibold text-onyx-200;
+  }
+
+  /* Body text - Medium weight, gray for small text */
+  p {
+    @apply text-sm text-onyx-400 font-normal;
+  }
+
+  /* Small text - Gray */
+  small {
+    @apply text-xs text-onyx-500;
+  }
+
+  /* Code/Mono */
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-onyx-900 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-onyx-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-onyx-600;
+  }
+}
+
+@layer components {
+  /* Glass morphism card */
+  .glass {
+    background-color: var(--color-onyx-900);
+    opacity: 0.5;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-onyx-800);
+    border-radius: 0.5rem;
+  }
+
+  /* Gold accent glass */
+  .glass-gold {
+    @apply backdrop-blur-sm border rounded-lg;
+    background-color: var(--color-gold-500);
+    opacity: 0.05;
+    border-color: var(--color-gold-500);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-gold {
+    @apply bg-gradient-to-br from-gold-500 to-gold-600;
+  }
+
+  .gradient-dark {
+    @apply bg-gradient-to-br from-onyx-900 to-onyx-950;
+  }
+
+  /* ID container with horizontal scroll */
+  .id-container {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md bg-onyx-900 border border-onyx-800;
+  }
+
+  .id-value {
+    @apply flex-1 overflow-x-auto whitespace-nowrap text-xs font-mono text-onyx-300;
+    scrollbar-width: thin;
+  }
+
+  .id-value::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  /* Log container - fixed height with scroll */
+  .log-container {
+    @apply h-full overflow-y-auto font-mono text-xs;
+    scrollbar-width: thin;
+  }
+
+  .log-line {
+    @apply py-0.5 px-2 text-onyx-400 border-l-2 border-transparent;
+  }
+
+  .log-line-info {
+    @apply text-onyx-300 border-l-info;
+  }
+
+  .log-line-success {
+    @apply border-l-success;
+    color: var(--color-success);
+  }
+
+  .log-line-warning {
+    @apply border-l-warning;
+    color: var(--color-warning);
+  }
+
+  .log-line-error {
+    @apply border-l-error;
+    color: var(--color-error);
+  }
+}
+
+@layer utilities {
+  /* Prevent user select for UI elements */
+  .no-select {
+    @apply select-none;
+  }
+
+  /* Draggable region for title bar */
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  /* Text ellipsis */
+  .truncate-fade {
+    @apply relative overflow-hidden;
+    mask-image: linear-gradient(to right, var(--color-black) 80%, transparent 100%);
+  }
+}

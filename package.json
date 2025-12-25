@@ -1,0 +1,74 @@
+{
+  "name": "onyx-pass",
+  "version": "1.0.0",
+  "description": "[Beta] Cursor Free Trial Helper - GUI Version. Windows only (macOS/Linux coming soon). Educational purposes only.",
+  "main": "dist-electron/main.js",
+  "author": "ChloeVPin",
+  "license": "CC-BY-NC-ND-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChloeVPin/cursor-free-vip.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "lucide-vue-next": "^0.312.0",
+    "radix-vue": "^1.4.9",
+    "sql.js": "^1.10.2",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^9.0.1",
+    "vue": "^3.4.15",
+    "vue-i18n": "^9.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/uuid": "^9.0.7",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "autoprefixer": "^10.4.17",
+    "electron": "^39.2.7",
+    "electron-builder": "^24.9.1",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^7.3.0",
+    "vite-plugin-electron": "^0.28.4",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue-tsc": "^3.2.1"
+  },
+  "build": {
+    "appId": "com.onyxpass.app",
+    "productName": "Cursor Free VIP",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "resources/**/*"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "public/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "public/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "public/icon.png"
+    }
+  }
+}
