@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.0",
-    "lucide-vue-next": "^0.312.0",
+    "lucide-vue-next": "^0.562.0",
     "radix-vue": "^1.4.9",
     "sql.js": "^1.10.2",
     "tailwind-merge": "^2.2.1",
