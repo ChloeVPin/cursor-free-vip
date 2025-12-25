@@ -19,7 +19,7 @@
     "lucide-vue-next": "^0.312.0",
     "radix-vue": "^1.4.9",
     "sql.js": "^1.10.2",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
     "vue": "^3.4.15",
